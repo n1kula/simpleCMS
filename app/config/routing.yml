@@ -1,6 +1,9 @@
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+    
 cms_frontend:
     resource: "@CmsFrontendBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /admin
 
 cms_admin:
     resource: "@CmsAdminBundle/Resources/config/routing.yml"

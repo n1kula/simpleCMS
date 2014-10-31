@@ -18,6 +18,9 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Cms\AdminBundle\CmsAdminBundle(),
             new Cms\FrontendBundle\CmsFrontendBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
+            new JordiLlonch\Bundle\CrudGeneratorBundle\JordiLlonchCrudGeneratorBundle(),
+            new Lexik\Bundle\FormFilterBundle\LexikFormFilterBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

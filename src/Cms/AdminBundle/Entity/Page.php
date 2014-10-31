@@ -64,9 +64,9 @@ class Page
     private $content;
 
     /**
-     * @var string
+     * @var \DateTime
      *
-     * @ORM\Column(name="createdAt", type="string", length=255)
+     * @ORM\Column(name="createdAt", type="datetime")
      */
     private $createdAt;
 
