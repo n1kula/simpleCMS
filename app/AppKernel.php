@@ -18,9 +18,12 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Cms\AdminBundle\CmsAdminBundle(),
             new Cms\FrontendBundle\CmsFrontendBundle(),
-            new FOS\UserBundle\FOSUserBundle(),
-            new JordiLlonch\Bundle\CrudGeneratorBundle\JordiLlonchCrudGeneratorBundle(),
-            new Lexik\Bundle\FormFilterBundle\LexikFormFilterBundle(),
+        		
+        	new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+        	new FOS\UserBundle\FOSUserBundle(),
+        	new Lexik\Bundle\FormFilterBundle\LexikFormFilterBundle(),
+        	new JordiLlonch\Bundle\CrudGeneratorBundle\JordiLlonchCrudGeneratorBundle(),
+        	new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
