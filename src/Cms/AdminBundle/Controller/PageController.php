@@ -115,7 +115,9 @@ class PageController extends Controller
      */
     public function createAction(Request $request)
     {
+        $user = $this->getUser();
         $entity  = new Page();
+        $entity->setUser($user);
         $form = $this->createForm(new PageType(), $entity);
         $form->bind($request);
 

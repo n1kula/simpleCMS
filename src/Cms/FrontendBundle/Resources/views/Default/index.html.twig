@@ -1,1 +1,21 @@
-Hello {{ name }}!
+{% extends 'CmsFrontendBundle::layout.html.twig' %}
+
+{% block body %}
+	
+	<div class="row marketing">
+        <div class="col-lg-6">
+          <h4>Lista dostępnych stron</h4>
+
+			<ul>
+				{% for page in pages %}
+				<li>
+					<a href="{{ path('show_page', {'slug': page.slug}) }}" > {{ page.title }} </a> 
+				</li>
+				{% endfor %}
+			</ul>          
+
+        </div>
+      </div>
+	
+{% endblock %}
+    

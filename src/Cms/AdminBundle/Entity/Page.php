@@ -4,11 +4,12 @@ namespace Cms\AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Page
  *
- * @ORM\Table()
+ * @ORM\Table(name="page")
  * @ORM\Entity
  */
 class Page
@@ -92,10 +93,21 @@ class Page
      */
     protected $pages;   
     
+    /**
+     * @Gedmo\Slug(fields={"title"})
+     * @ORM\Column(name="slug", length=255, unique=true)
+     */
+    private $slug;
+    
     public function __construct()
     {
         $this->createdAt = new \DateTime();
         $this->pages = new ArrayCollection();
+    }
+    
+     public function __toString()
+    {
+    	return $this->getTitle();
     }
     
     /**
@@ -267,5 +279,107 @@ class Page
     public function getCreatedAt()
     {
         return $this->createdAt;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \Cms\AdminBundle\Entity\User $user
+     * @return Page
+     */
+    public function setUser(\Cms\AdminBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Cms\AdminBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Set page
+     *
+     * @param \Cms\AdminBundle\Entity\Page $page
+     * @return Page
+     */
+    public function setPage(\Cms\AdminBundle\Entity\Page $page = null)
+    {
+        $this->page = $page;
+
+        return $this;
+    }
+
+    /**
+     * Get page
+     *
+     * @return \Cms\AdminBundle\Entity\Page 
+     */
+    public function getPage()
+    {
+        return $this->page;
+    }
+
+    /**
+     * Add pages
+     *
+     * @param \Cms\AdminBundle\Entity\Page $pages
+     * @return Page
+     */
+    public function addPage(\Cms\AdminBundle\Entity\Page $pages)
+    {
+        $this->pages[] = $pages;
+
+        return $this;
+    }
+
+    /**
+     * Remove pages
+     *
+     * @param \Cms\AdminBundle\Entity\Page $pages
+     */
+    public function removePage(\Cms\AdminBundle\Entity\Page $pages)
+    {
+        $this->pages->removeElement($pages);
+    }
+
+    /**
+     * Get pages
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPages()
+    {
+        return $this->pages;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Page
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

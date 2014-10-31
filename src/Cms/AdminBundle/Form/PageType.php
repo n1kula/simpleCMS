@@ -11,6 +11,7 @@ class PageType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('page')
             ->add('metaTitle')
             ->add('metaKeywords')
             ->add('metaDescription')

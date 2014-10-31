@@ -1,3 +1,7 @@
-cms_frontend_homepage:
-    path:     /hello/{name}
+homepage:
+    path:     /
     defaults: { _controller: CmsFrontendBundle:Default:index }
+
+show_page:
+    path:     /{slug}
+    defaults: { _controller: CmsFrontendBundle:Default:show }

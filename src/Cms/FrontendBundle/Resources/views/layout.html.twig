@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Cms{% endblock %}</title>
+        {% block stylesheets %}
+            {% stylesheets
+                'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'
+            %}
+            <link href="{{ asset_url }}" type="text/css" rel="stylesheet">
+            {% endstylesheets %}
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+    
+    	<div class="container">
+		  <div class="header">
+		    <ul class="nav nav-pills pull-right" role="tablist">
+		      <li role="presentation" class="active"><a href="{{ path('homepage') }}">Strona główna</a></li>
+		      <li role="presentation"><a href="{{ path('fos_user_security_login') }}">Zaloguj</a></li>
+		    </ul>
+		    <h3 class="text-muted">Test CMS</h3>
+		  </div>
+		
+		  {% block body %}{% endblock %}
+		
+		  <div class="footer">
+		    <p>&copy; Company 2014</p>
+		  </div>
+		
+		</div> <!-- /container -->
+    
+        {% block javascripts %}
+            {% javascripts
+	        	'https://code.jquery.com/jquery-1.11.1.min.js'
+	        	'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'
+	        %}
+	        	<script src="{{ asset_url }}"></script>
+	        {% endjavascripts %}
+        {% endblock %}
+    </body>
+</html>
