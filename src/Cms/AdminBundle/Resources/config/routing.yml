@@ -1,3 +1,11 @@
 cms_admin_homepage:
     path:     /
     defaults: { _controller: CmsAdminBundle:Default:index }
+    
+cms_admin_user:
+        resource: "@CmsAdminBundle/Resources/config/routing/user.yml"
+        prefix:   /user
+
+cms_admin_page:
+        resource: "@CmsAdminBundle/Resources/config/routing/page.yml"
+        prefix:   /page

@@ -3,9 +3,9 @@ fos_user:
     
 cms_frontend:
     resource: "@CmsFrontendBundle/Resources/config/routing.yml"
-    prefix:   /admin
+    prefix:   /
 
 cms_admin:
     resource: "@CmsAdminBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /admin
 

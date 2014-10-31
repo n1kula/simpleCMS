@@ -20,11 +20,18 @@ class User extends BaseUser
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
+    
+     /**
+     * @ORM\OneToMany(targetEntity="Page", mappedBy="user")
+     * @var ArrayCollection
+     */
+    protected $pages;
 
  public function __construct()
     {
     	parent::__construct();
+        $this->pages = new ArrayCollection();
     }
     
     /**

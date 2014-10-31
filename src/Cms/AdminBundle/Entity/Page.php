@@ -3,6 +3,7 @@
 namespace Cms\AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Page
@@ -70,7 +71,33 @@ class Page
      */
     private $createdAt;
 
-
+    /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="pages")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * 
+     * @var User
+     */
+    protected $user;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Page", inversedBy="pages")
+     *
+     * @var User
+     */
+    protected $page;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Page", mappedBy="page")
+     * @var ArrayCollection
+     */
+    protected $pages;   
+    
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
+        $this->pages = new ArrayCollection();
+    }
+    
     /**
      * Get id
      *
